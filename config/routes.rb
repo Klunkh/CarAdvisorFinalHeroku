@@ -2,7 +2,7 @@
  Rails.application.routes.draw do
   
 
-  
+  get '/operazionis/index' => redirect('/')
 	
 
   post 'users/new' => 'users#new'
@@ -24,7 +24,7 @@
   get 'operazionis/:id/edit' => 'operazionis#edit'
   patch 'operazionis/:id' => 'operazionis#update'
   delete 'operazionis/:id' => 'operazionis#destroy'
-  get 'operazionis/index'
+  
   get 'operazionis/:id' => 'operazionis#show'
   
   get 'scadenzes/index' =>redirect('/')

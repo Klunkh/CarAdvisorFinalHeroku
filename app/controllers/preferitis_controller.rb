@@ -13,7 +13,7 @@ def create
    respond_to do |format|
 	if @preferiti.save
 	flash[:success] = "Officina aggiunta ai preferiti!"
-    format.html { redirect_to "http://localhost:3000/officinas/index"}
+    format.html { redirect_to "https://car-advisors.herokuapp.com/officinas/index"}
     format.json { render :show, status: :ok, location: @officina}
 	else
 	flash[:danger]= "Errore aggiunta officina. Ricontrolla i dati per favore"

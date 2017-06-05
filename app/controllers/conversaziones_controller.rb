@@ -3,7 +3,7 @@ before_action :logged_in_user, only: [:create]
 skip_before_action :verify_authenticity_token
 
 def reload
-redirect_to("http://localhost:3000/conversaziones/index")
+redirect_to("https://car-advisors.herokuapp.com/conversaziones/index")
 end
  def ciccio()
 	print(123456)

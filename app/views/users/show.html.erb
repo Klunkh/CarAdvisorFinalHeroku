@@ -1,5 +1,7 @@
+<!DOCTYPE html>
+<html>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
 </head>
 <div class="datiPers">
 <div class="container-fluid">
@@ -37,18 +39,18 @@
 </div>
 <div class= "col-md-4">
 <p>
-   <a href="http://localhost:3000/users/<%= current_id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifica dati</a>
+   <a href="https://car-advisors.herokuapp.com/users/<%= current_id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifica dati</a>
 </p>
 <p>
-   <a href="http://localhost:3000/scadenzes/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> &nbsp; Aggiungi Scadenza</a>
+   <a href="https://car-advisors.herokuapp.com/scadenzes/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> &nbsp; Aggiungi Scadenza</a>
 </p>
 	<% if @user.tipo? %>
 	<p>
-		<a href="http://localhost:3000/officinas/index" class="modPers"><span class="glyphicon glyphicon-wrench"></span> &nbsp; Le tue officine</a>
+		<a href="https://car-advisors.herokuapp.com/officinas/index" class="modPers"><span class="glyphicon glyphicon-wrench"></span> &nbsp; Le tue officine</a>
 	 </p>
 	<% end %>
 <p>
-<a href="http://localhost:3000/autoveicolos/" class="modPers"><span class="glyphicon glyphicon-heart-empty"></span> &nbsp; I tuoi veicoli</a>
+<a href="https://car-advisors.herokuapp.com/autoveicolos/" class="modPers"><span class="glyphicon glyphicon-heart-empty"></span> &nbsp; I tuoi veicoli</a>
 </p>
 </div>
 
@@ -56,3 +58,4 @@
 
 </div>
 </div>
+</html>

@@ -14,7 +14,7 @@
 }
 </script>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
 </head>
 <body>
 <div class= "tabella">
@@ -62,7 +62,7 @@
         
         <% end %>
         <% end %> </td>
-	<td> <a class = "modPers" href="http://localhost:3000/officinas/<%= officina.id %> ">Mostra </a> &emsp;
+	<td> <a class = "modPers" href="https://car-advisors.herokuapp.com/officinas/<%= officina.id %> ">Mostra </a> &emsp;
 	<a class = "modPers" data-confirm="Sicuro di voler eliminare questa officina?" rel="nofollow" data-method="delete" href="/officinas/<%= officina.id %>"> Elimina</a> </td>
 </tr>
 	<% end %>
@@ -102,7 +102,7 @@
         <% end %>
         <% end %>
         </td>
-	<td> <a class = "modPers"  href="http://localhost:3000/officinas/<%= officina.id %> ">Mostra &emsp; </a>
+	<td> <a class = "modPers"  href="https://car-advisors.herokuapp.com/officinas/<%= officina.id %> ">Mostra &emsp; </a>
 	<a  class = "modPers" data-confirm="Sicuro di voler eliminare questa officina?" rel="nofollow"  data-method="delete" href="/officinas/<%= officina.id %>">  Elimina</a> </td>
 	</tr>
 	<% end %>
@@ -139,7 +139,7 @@
         <% end %>
         <% end %>
         </td>
-        <td><a class = "modPers" href="http://localhost:3000/officinas/<%= officina.id %> ">Mostra </a> &emsp;</td>
+        <td><a class = "modPers" href="https://car-advisors.herokuapp.com/officinas/<%= officina.id %> ">Mostra </a> &emsp;</td>
 		</tr>
 <% end %>
 <% end %>
@@ -147,7 +147,7 @@
 </table>
 <% if current_user.tipo? || current_user.admin?%>
 <p>
-<a href="http://localhost:3000/officinas/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> Aggiungi officina</a>
+<a href="https://car-advisors.herokuapp.com/officinas/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> Aggiungi officina</a>
 </p>
 <% end %>
 </div>

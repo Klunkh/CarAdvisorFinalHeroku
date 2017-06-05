@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
     <script type="text/javascript">
     
     function cancella_notifica_messaggi(input){
@@ -21,12 +21,12 @@
         <div class="col-lg-6">
                 <h1>Benvenuto <%= current_user.nome %>! </h1>
                 <% if @autoveicolo.where(user_id: current_id).count < 1 %>
-                <p class="piccoloHome"> Non hai ancora aggiunto nessun veicolo, <a href="http://localhost:3000/autoveicolos/new" class="modPersXS"> aggiungilo ora!</a></p>
+                <p class="piccoloHome"> Non hai ancora aggiunto nessun veicolo, <a href="https://car-advisors.herokuapp.com/autoveicolos/new" class="modPersXS"> aggiungilo ora!</a></p>
                 <% else %>
                 <p class=pers>Di quale veicolo ti vuoi occupare oggi?</p>
                 <% @autoveicolo.where(user_id: current_id).find_each do |autoveicolo| %>
                 <br/>
-                <li><a class=modPers href="http://localhost:3000/autoveicolos/<%= autoveicolo.id %>"> <%= autoveicolo.targa %> </a></li>
+                <li><a class=modPers href="https://car-advisors.herokuapp.com/autoveicolos/<%= autoveicolo.id %>"> <%= autoveicolo.targa %> </a></li>
                 <% end %>
                 <% end %>
         </div>
@@ -36,7 +36,7 @@
 			<% @conversazioni.where(destinatario_id: converti_mail_id(current_id), letto: 'f').pluck('DISTINCT user_id').each do |conversazione| %>
 			<li class=modPersXS> <%= get_nome_da_id( conversazione) %> </li>
 			<% end %>
-			<h3 class=pers>clicca <a class=modPers href="http://localhost:3000/conversaziones/index" onclick="cancella_notifica_messaggi(<%= current_id %>)">QUI</a> per leggerli. </h3>
+			<h3 class=pers>clicca <a class=modPers href="https://car-advisors.herokuapp.com/conversaziones/index" onclick="cancella_notifica_messaggi(<%= current_id %>)">QUI</a> per leggerli. </h3>
 		<% end %>
             <h2>Scadenze entro 30 giorni</h2>
             <table class="table table-bordered table-hover">

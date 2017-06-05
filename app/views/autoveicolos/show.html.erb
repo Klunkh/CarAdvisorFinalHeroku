@@ -1,5 +1,8 @@
+
+<!DOCTYPE html>
+<html>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
 </head>
 
 <p id="notice"><%= notice %></p>
@@ -38,7 +41,7 @@
 </p>
 
 <p>
-   <a href="http://localhost:3000/autoveicolos/<%= @autoveicolo.id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> Modifica dati</a>
+   <a href="https://car-advisors.herokuapp.com/autoveicolos/<%= @autoveicolo.id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> Modifica dati</a>
 </p>
 
 <p>
@@ -59,7 +62,7 @@
 </thead>
 <tr>
     <% @operazione.where(targa: @autoveicolo.id).order(:data).each do |operazione| %>
-     <td><a class=modPersXS href="http://localhost:3000/operazionis/<%= operazione.id %>"> <%= operazione.data %> </a></td>
+     <td><a class=modPersXS href="https://car-advisors.herokuapp.com/operazionis/<%= operazione.id %>"> <%= operazione.data %> </a></td>
      <td class=piccolo><%= find_nome_officina(operazione.officina) %> </td>
 	 <!-- incollare questo alla riga sopra per il collegamento all'officina <a class=modPersXS href="http://localhost:3000/officinas/<%= operazione.officina %>" > -->
      <td width="200" class=piccolo> <%= operazione.oggetto %> </td>
@@ -77,4 +80,4 @@
 </div>
 
 </div>
-
+</html>
