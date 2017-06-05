@@ -1,7 +1,7 @@
 class AutoveicolosController < ApplicationController
 
 before_action :utente_autoveicolo, only: [:destroy,:show, :update]
-before_action :logged_in_user, only: [:create]
+before_action :logged_in_user, only: [:create, :new]
 
 
 skip_before_action :verify_authenticity_token  
