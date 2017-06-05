@@ -29,17 +29,18 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  host = 'https://car-advisors.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: 'https://car-advisors.herokuapp.com/' }
   config.action_mailer.delivery_method = :smtp
 # SMTP settings for gmail
-   config.action_mailer.smtp_settings = {
- :address              => "smtp.gmail.com",
- :port                 => 587,
- :user_name            => 'caradvisorz@gmail.com',
- :password             => 'anakid*1',
- :authentication       => "plain",
- :openssl_verify_mode  => 'none'
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'app69917611@heroku.com',
+  :password => 'tqndjt0j0667',
+  :domain => 'https://car-advisors.herokuapp.com/',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
 }
 
 
