@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+</head>
+<div class="datiPers">
+<div class="container-fluid">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Dati Personali </h1>
+<div class = "row" >
+	<div class= "col-md-5">
+<p class=pers> 
+  <strong>Nome:</strong>
+  <%= @user.nome %>
+</p>
+
+<p class=pers>
+  <strong>Cognome:</strong>
+  <%= @user.cognome %>
+</p>
+
+<p class=pers>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p class=pers>
+  <strong>Tipo:</strong>
+  <% if @user.tipo==true %>
+		Meccanico
+		
+  <% else %>
+		Utente
+	
+	<% end %>
+</p>
+</div>
+<div class= "col-md-4">
+<p>
+   <a href="https://car-advisors.herokuapp.com/users/<%= current_id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> &nbsp; Modifica dati</a>
+</p>
+<p>
+   <a href="https://car-advisors.herokuapp.com/scadenzes/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> &nbsp; Aggiungi Scadenza</a>
+</p>
+	<% if @user.tipo? %>
+	<p>
+		<a href="https://car-advisors.herokuapp.com/officinas/index" class="modPers"><span class="glyphicon glyphicon-wrench"></span> &nbsp; Le tue officine</a>
+	 </p>
+	<% end %>
+<p>
+<a href="https://car-advisors.herokuapp.com/autoveicolos/" class="modPers"><span class="glyphicon glyphicon-heart-empty"></span> &nbsp; I tuoi veicoli</a>
+</p>
+</div>
+
+</div>
+
+</div>
+</div>
+</html>

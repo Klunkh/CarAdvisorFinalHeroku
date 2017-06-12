@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+</head>
+<div class="datiPers">
+<div class="container-fluid">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Operazione effettuata: </h1>
+<div class = "row" >
+	<div class= "col-md-5">
+<p class=pers> 
+  <strong>Oggetto:</strong>
+  <%= @operazioni.oggetto %>
+</p>
+
+<p class=pers>
+  <strong>km:</strong>
+  <%= @operazioni.km %>
+</p>
+
+<p class=pers>
+  <strong>Data:</strong>
+  <%= @operazioni.data %>
+</p>
+
+<p class=pers>
+  <strong>Officina:</strong>
+  <% @officina.where(id: @operazioni.officina ).find_each do |off| %>
+    <%= off.indirizzo %>
+    <% end %>
+</p>
+<p class=pers>
+  <strong>Costo:</strong>
+  <%= @operazioni.costo %>
+</p>
+</div>
+<div class= "col-md-7">
+<p>
+   <a href="https://car-advisors.herokuapp.com/operazionis/<%= @operazioni.id %>/edit" class="modPers"><span class="glyphicon glyphicon-pencil"></span> Modifica Operazione</a>
+</p>
+<p>
+<a data-confirm="Sicuro di voler eliminare questa operazione?" rel="nofollow" class="modPers" data-method="delete" href="/operazionis/<%= @operazioni.id %>"><span class="glyphicon glyphicon-trash"></span> Elimina Operazione</a></p>
+</p>	
+</div>
+
+</div>
+
+</div>
+</div>
+</html>

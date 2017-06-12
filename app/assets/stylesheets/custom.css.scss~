@@ -1,0 +1,229 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+select {
+    width: 180px;
+    border: 1px solid;
+    border-radius: 4px; 
+    background-color:#FFF;
+}
+h1 {
+  word-spacing: 5px;
+  color: #000000;
+  font-weight: bold;
+  padding-top: 1px;
+  text-align: center;
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+}
+h2{
+  word-spacing: 5px;
+  text-align: center;
+  line-height: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px ;
+}
+a {
+  font-weight: bold;
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+}
+p {
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.registrazione{
+  
+  padding-bottom: 950px;
+  background-color: #FFF;
+  padding-top: 40px;
+  text-align: center;
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+} 
+.full-width-bar {
+  overflow:auto;
+  margin: 0 -999rem;
+  padding: 0.25rem 9999rem;
+  padding-bottom: 650px;
+ 
+  background: #FFF;
+  opacity: 0.9;
+}
+
+.tabella{
+  padding-top: 20px;
+  padding-bottom: 450px;
+  background-color: #FFF;
+  padding-top: 40px;
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+} 
+
+
+#logo{
+    color: #FFF;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+#minilogo{
+    color: #FFF;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-right: 33px;
+}
+
+#logologin{
+    color: #FFF;
+    font-size: 15px;
+    
+}
+
+#logologin:hover{
+	color: #4287CA;
+}
+
+
+
+
+login {
+  font-family: 'Raleway', sans-serif;
+  padding-top: 90px;
+  text-align: center;
+  line-height: 100%;
+  margin-bottom: 30px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.datiPers{
+  overflow: auto;
+  padding-top: 20px;
+  padding-bottom: 450px;
+  background-color: #FFF;
+  padding-top: 40px;
+  text-align: left;
+  line-height: 150%;
+  font-family: 'Raleway', sans-serif;
+} 
+
+.pers {
+   font-size: 20px;
+   font-family: 'Raleway', sans-serif;
+}
+
+.modPers {
+   font-size: 20px;
+   font-family: 'Raleway', sans-serif;
+}
+.modPersXS:hover {
+   
+   color:#4287CA;
+   background-color:#FFF;
+}
+.modPers:hover{
+   color:#4287CA;
+   background-color:#FFF;
+
+
+}
+.piccolo{
+	font-size: 15px;
+font-family: 'Raleway', sans-serif;
+}
+.sfondo {  background: url('/assets/sfondocar.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+                           
+}
+.sfondo_senza_scritta {  background: url('/assets/sfondo_senza_scritta.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+                           
+}
+.alert-success{ 
+padding-top: 20px; 
+padding-bottom: 40px; 
+vertical-align: center; 
+background-color: #80FF80; 
+font-family: 'Raleway', sans-serif; 
+text-align: center; 
+font-size: medium; 
+}
+
+.alert-danger{ 
+padding-top: 20px; 
+padding-bottom: 40px; 
+vertical-align: center; 
+background-color: #FF9F9F;
+font-family: 'Raleway', sans-serif;
+text-align: center;
+font-size: medium;
+}
+.alert-info{ 
+padding-top: 20px; 
+padding-bottom: 40px; 
+vertical-align: center; 
+background-color: #FFDEAD;
+font-family: 'Raleway', sans-serif;
+text-align: center;
+font-size: medium;
+}
+.closebtn{
+ margin-left: 15px;
+ color: #000000;
+ font-weight: bold;
+ #float: right;
+ font-size: 22px;
+ line-height: 20px;
+ cursor: pointer;
+ transition: 0.3s;
+ position:relative;
+ top:0;
+ right:0;
+ }
+
+ /* per rimetterlo come prima eliminare class trasparente e incollare style="background-color:#4287CA" */
+ .trasparente{
+ background: url('/assets/vuota.png');
+ 
+ }
+.dropdown-menu{
+    color: black;
+    padding: 12px 12px;
+    text-decoration: none;
+    min-width: 1200 px;
+   
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+    color: black;
+}
+
+

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html><head>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+</head>
+
+<div class= "tabella">
+<h1>Indice veicoli</h1>
+<br/>
+<div class= "col-md-12">
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th class=pers>Targa</th>
+      <th class=pers>Modello</th>
+      <th class=pers>Carburante</th>
+      <th class=pers>Kilometri</th>
+      <th class=pers>Opzioni</th>
+    </tr>
+  </thead>
+<% if current_user.admin?  %>
+<% @autoveicolo.each do |autoveicolo| %>
+<tr>
+	<td class=pers> <%= autoveicolo.targa %></td>
+        <td class=pers> <%= autoveicolo.modello %></td>
+        <td class=pers> <%= autoveicolo.carburante %></td>
+	<td class=pers> <%= autoveicolo.kilometri%></td>
+	<td> <a class ="modPers" href="https://car-advisors.herokuapp.com/autoveicolos/<%= autoveicolo.id %> ">Mostra</a></td>
+<% end %>
+<% else %>
+
+<% @autoveicolo.where(user_id: current_id).find_each do |autoveicolo| %>
+<tr>
+	<td class=pers> <%= autoveicolo.targa %></td>
+        <td class=pers> <%= autoveicolo.modello %></td>
+        <td class=pers> <%= autoveicolo.carburante %></td>
+	<td class=pers> <%= autoveicolo.kilometri%></td>
+	<td> <a class ="modPers" href="https://car-advisors.herokuapp.com/autoveicolos/<%= autoveicolo.id %> ">Mostra</a></td>
+<% end %>
+<% end %>
+</tr>
+</table>
+</div>
+<p>
+<a href="https://car-advisors.herokuapp.com/autoveicolos/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> Aggiungi veicolo</a>
+</p>
+
+<% @preferito.where(user_id: current_id).find_each do |preferito| %>
+<p>
+<a href="https://car-advisors.herokuapp.com/officinas/<%= preferito.meccanico %>" class="modPers"><span class="glyphicon glyphicon-star-empty"></span>  Officina preferita</a>
+</p>
+<% end %>
+
+
+</div>
+</html>

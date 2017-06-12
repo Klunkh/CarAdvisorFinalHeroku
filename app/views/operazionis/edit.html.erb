@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+</head>
+<div class="registrazione">
+<h1>Modifica Operazione</h1>
+<br/>
+<br/>
+<div class="col-md-4 col-md-offset-4">
+    <form class="edit_operazioni" id="edit_operazioni_" action="/operazionis/<%= @operazioni.id %>" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="LU8alkMCfZjpiX2zaZ3LpjAdvbkE2Ltwdy8O25gdDP73BlQezn/R/4C1ERZPyCG8Gv2GovOxY2WdRX6Z6FY9EA==" />
+      
+
+      <label for="operazioni_oggetto" class=pers>Oggetto</label>
+      <textarea rows="4" cols="30"class="form-control"  name="operazionis[oggetto]" id="operazionis_oggetto" placeholder="<%=@operazioni.oggetto %>" ></textarea>
+      <label for="operazioni_km" class=pers>Km</label>
+      <input class="form-control" type="text" name="operazionis[km]" id="operazionis_km" value= "<%=@operazioni.km %>" />
+ <label for="operazioni_targa" class=pers>Targa</label>
+	  <%= collection_select(:scadenzes, :targa, Autoveicolo.where(user_id: current_id), :id, :get_targa,{:selected => @operazioni.targa }) %>
+ <label for="operazioni_costo" class=pers>Costo</label>
+      <input class="form-control" type="text" name="operazionis[costo]" id="operazionis_costo" value= "<%=@operazioni.costo %>" />
+	
+      <label for="operazioni_data" class=pers>Data</label>
+      <input class="form-control" type="text" name="operazionis[data]" id="operazionis_data" value="<%=@operazioni.data %>"/>
+<p>
+	  
+	  </p>
+      <label for="operazioni_officina" class=pers>Officina</label>
+	  
+     
+		<%= collection_select(:operazionis, :officina, Officina.all, :id, :get_officina,{:selected =>@operazioni.officina }) %>
+  
+      <input type="hidden" name="operazionis[user_id]" id="operazionis_user_id" value="<%= current_id %>" />
+ <br/>
+<br/>
+<input type="submit" name="commit" value="Salva" class="btn btn-primary btn-block" data-disable-with="Salvataggio.." />
+</form>
+<br/>
+</div>
+</div>
+   
+
+</div>
+</div>
+</html>

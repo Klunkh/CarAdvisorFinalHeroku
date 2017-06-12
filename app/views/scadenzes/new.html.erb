@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+ <script type="text/javascript">
+$(document).ready(function()
+{
+ var km_attuali=$(".km_attuali").detach();
+ var data_assicurazione=$(".data_assicurazione").detach();
+ var tipo_scadenza=$(".tipo_scadenza").detach();
+ var data_revisione=$(".data_revisione").detach();
+ var data_bollo=$(".data_bollo").detach();
+ var scadenza_gomme=$(".scadenza_gomme").detach();
+ var scadenza_tagliando=$(".scadenza_tagliando").detach();
+ var data_scadenza=$(".data_scadenza").detach();
+ $("#scadenzes_tipo").change(function()
+ {
+  if($(this).val() == "Assicurazione")
+  {
+  
+   tipo_scadenza.prependTo('form');
+   data_assicurazione.prependTo('form');
+   data_scadenza.prependTo('form');
+   $(".km_attuali").detach();
+   $(".data_revisione").detach();
+   $(".data_bollo").detach();
+   $(".scadenza_tagliando").detach();
+   $(".scadenza_gomme").detach();
+  }
+  else if($(this).val() == "Gomme")
+  {
+   $(".data_scadenza").detach();
+   $(".data_assicurazione").detach();
+   $(".tipo_scadenza").detach();
+   $(".km_attuali").detach();
+$(".data_revisione").detach();
+$(".data_bollo").detach();
+scadenza_gomme.prependTo('form');
+$(".scadenza_tagliando").detach();
+  }
+  else if($(this).val() == "Tagliando")
+  {
+   $(".data_scadenza").detach();
+   $(".data_assicurazione").detach();
+   $(".tipo_scadenza").detach();
+   $(".km_attuali").detach();
+$(".data_revisione").detach();
+$(".data_bollo").detach();
+$(".scadenza_gomme").detach();
+scadenza_tagliando.prependTo('form');
+  }
+  else if($(this).val() =="Revisione"){
+	data_revisione.prependTo('form');
+	data_assicurazione.prependTo('form');
+        $(".tipo_scadenza").detach();
+        $(".km_attuali").detach();
+        $(".data_bollo").detach();
+        $(".scadenza_gomme").detach();
+	$(".scadenza_tagliando").detach();
+$(".data_scadenza").detach();
+}
+else if($(this).val() =="Bollo"){
+	$(".data_revisione").detach();
+	$(".data_assicurazione").detach();
+        $(".tipo_scadenza").detach();
+        $(".km_attuali").detach();
+	data_bollo.prependTo('form');
+     $(".scadenza_gomme").detach();
+$(".scadenza_tagliando").detach();
+$(".data_scadenza").detach();
+}
+ });
+
+});
+
+</script>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+</head>
+<body  class="trasparente">
+<div class="registrazione">
+<h1>Aggiungi Scadenza</h1>
+
+<% if @scadenze.errors.any? %>
+    <% @scadenze.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+<% end %>
+<% end %>
+
+
+<div class="col-md-4 col-md-offset-4">
+<% if Autoveicolo.where(user_id: current_id).count<=0 %>
+<p class=pers> Inserire almeno un autoveicolo</p>
+<a  href="/autoveicolos/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> Aggiungi veicolo </a>
+<% else %>
+<form class="new_user" id="new_user" action="/scadenzes" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+ <div class="field">
+    <input type="hidden" name="scadenzes[user_id]" size= "30" class="form-control"  id="scadenzes_user_id" value="<%= current_id %>"/>
+  </div>
+  <div class="field">
+    <label for="scadenzes_tipo" class=pers>Tipo</label>
+    <select class=piccolo name="scadenzes[tipo]" id="scadenzes_tipo" style="width:255px;">
+      <option  selected disabled value="">Inserisci la scadenza da ricordare </option>
+      <option value="Assicurazione">Assicurazione</option>
+      <option value="Revisione">Revisione</option>
+      <option value="Tagliando">Tagliando</option>
+      <option value="Bollo">Bollo</option>
+      <option value="Gomme">Gomme</option>
+  </select>
+  </div>
+
+  <div class="km_attuali">
+    <label for="operazionis_km"class=pers>Kilometri necessari per l'avviso</label>
+    <input type="text" name="scadenzes[km]" size= "30" class="form-control" id="scadenzes_km" />
+  </div>
+  
+<div class="scadenza_gomme">
+    <label for="scadenzes_tipoScadenza" class=pers>Data ultimo cambio gomme</label>
+     <input type="hidden" value="45000" name="scadenzes[km]" size= "30" class="form-control" id="scadenzes_km" />
+    <input type="date" name="scadenzes[dataStipulazione]" size= "30" class="form-control"  id="scadenzes_dataStipulazione" />
+  </div>
+<div class="scadenza_tagliando">
+    <label for="scadenzes_tipoScadenza" class=pers>Data ultimo Tagliando</label>
+     <input type="hidden" value="20000" name="scadenzes[km]" size= "30" class="form-control" id="scadenzes_km" />
+    <input type="date" name="scadenzes[dataStipulazione]" size= "30" class="form-control"  id="scadenzes_dataStipulazione" />
+  </div>
+
+  <div class="data_assicurazione">
+    <label for="scadenzes_dataStipulazione" class=pers>Data Stipulazione </label>
+    <input type="date" name="scadenzes[dataStipulazione]" size= "30" class="form-control"  id="scadenzes_dataStipulazione" />
+  <br/>
+  </div>
+<div class="data_bollo">
+    <label for="scadenzes_data" class=pers>Data ultimo Bollo</label>
+    <input type="date" name="scadenzes[dataStipulazione]" size= "30" class="form-control"  id="scadenzes_dataStipulazione" />
+  </div>
+
+<div class="data_revisione">
+    <label for="scadenzes_tipoScadenza" class=pers>Revisione</label>
+    <select name="scadenzes[tipoScadenza]" class=piccolo id="scadenzes_tipoScadenza" style="width:255px;"/>
+    <option value="">Inserisci il tipo di Revisione </option>
+    <option value="48">Prima Revisione</option>
+    <option value="24">Revisioni successive</option>
+  </select>
+  </div>
+ <div class="tipo_scadenza">
+    <label for="scadenzes_tipoScadenza" class=pers>Tipo di Scadenza</label>
+    <select name="scadenzes[tipoScadenza]" class=piccolo id="scadenzes_tipoScadenza" style="width:255px;" />
+    <option value="">Inserisci il tipo di Scadenza </option>
+    <option value="1">Mensile</option>
+    <option value="2">Bimestrale</option>
+    <option value="3">Trimestrale</option>
+    <option value="6">Semestrale</option>
+    <option value="12">Annuale</option>
+   </select>
+   <br/>
+  </div>
+<div class="macchina_riferimento">
+<label for="scadenzes_data" class=pers>Autoveicolo</label>
+<%= collection_select(:scadenzes, :targa, Autoveicolo.where(user_id: current_id), :id, :get_targa) %>
+</div>
+  <br/>
+  <div class="actions">
+    <input type="submit" name="commit" value="Aggiungi operazione" class="btn btn-primary btn-lg" data-disable-with="Aggiungi operazione" />
+  </div>
+
+</form>
+
+</div>
+<% end %>
+</div>
+
+</body>
+</html>
