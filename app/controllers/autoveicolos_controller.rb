@@ -85,14 +85,15 @@ private
 	@operazione=Operazioni.all
 	ultima_operazione_data=@operazione.where(targa: id_auto).maximum(:data) #=>prendo la data dell'ultima operazione
 	ultima_operazione_km=@operazione.where(targa: id_auto, data: ultima_operazione_data).find_each
-	
-	if(km_attuali>ultima_operazione_km.to_s.to_f && @operazione.where(targa: id_auto).count >1) #=>Se i km inseriti durante l'update sono maggiori di quelli precedenti aggiorna la media in "autoveicolos"
+	if ultima_operazione_data!=nil
+	if(km_attuali>ultima_operazione_km.to_s.to_f && @operazione.where(targa: id_auto).count >0) #=>Se i km inseriti durante l'update sono maggiori di quelli precedenti aggiorna la media in "autoveicolos"
 		media_giorni=oggi-ultima_operazione_data.mjd #=> calcolo data_update-data_ultima_operazione
 		media_km=km_attuali-ultima_operazione_km.to_s.to_f #=> come sopra ma per i kim
 		print("	UPDATE_MEDIA_AUTOVEICOLOS \n")
 	    return(media_km/media_giorni)
 	end
-	
+	else return 0
+	end
 	
 end	
 	
