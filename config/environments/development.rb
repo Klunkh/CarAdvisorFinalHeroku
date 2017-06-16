@@ -34,8 +34,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 # SMTP settings for gmail
   ActionMailer::Base.smtp_settings = {
-  :user_name => 'app69917611@heroku.com',
-  :password => 'tqndjt0j0667',
+  :user_name => ENV['app69917611@heroku.com'],
+  :password => ENV['tqndjt0j0667'],
   :domain => 'https://car-advisors.herokuapp.com/',
   :address => 'smtp.sendgrid.net',
   :port => 587,
