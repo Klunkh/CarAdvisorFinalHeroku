@@ -79,10 +79,12 @@ def create
   
 private
 
-    def update_media(id_auto,km_attuali,data)
+     def update_media(id_auto,km_attuali,data)
 	require 'date'
 	@Inf =1.0/0.0
 	@auto=Autoveicolo.all
+	@automobile=Autoveicolo.find_by_id(id_auto)
+	media_precedente=@automobile.media
 	oggi=data.to_date.mjd #=> data in input convertita prima in data e poi in giorni
 	@operazione=Operazioni.all
 	ultima_operazione_data=@operazione.where(targa: id_auto).maximum(:data) #=>prendo la data dell'ultima operazione
@@ -94,11 +96,11 @@ private
 		print("	UPDATE_MEDIA_AUTOVEICOLOS \n")
 		if media_km/media_giorni!=@Inf
 	    return(media_km/media_giorni)
-		else return 0
+		else return media_precedente
 		end
 	end
 	else 
-		return 0
+		return media_precedente
 	end
 	
 	
