@@ -4,7 +4,7 @@ before_action :logged_in_user
 before_action :meccanico_user,     only: [:new, :destroy] 
   def show
 	@officina=Officina.find(params[:id])
-	
+	@meccanico=User.find_by_id(@officina.user_id)
 	@rating=Rating.where(user_id: current_id, officina_id: @officina)
         @ratings=Rating.all
 	@ratings.where(user_id: current_id, officina_id: @officina).find_each do |officina|
@@ -91,12 +91,12 @@ end
       flash.now[:info]="Solo i meccanici possono inserire nuove officine"
 	  
     end
-  def logged_in_user
+   def logged_in_user
       unless logged_in?
-        flash[:danger] = "Per favore effettua il log-in"
+        flash[:danger] = "Please log in."
         redirect_to login_url
       end
-    end	
+    end
 	def get_officina
         "#{indirizzo}"
   end   
