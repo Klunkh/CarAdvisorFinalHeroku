@@ -45,17 +45,37 @@
             <th class=pers> Giorni alla Scadenza </th>
             <% @scadenze.where(user_id: current_id, notificato: 'f').find_each do |scadenze| %>
             <tr>
-            <% if (scadenze.data_scadenza).to_i< @data_passata %>
+            <% if (scadenze.data_scadenza).to_i-@data_oggi.to_i<= 30%>
             <td class=pers><%= @autoveicolo.find(scadenze.targa).targa %></td>
             <td class=pers><%= scadenze.tipo %></td>
             <td class=pers><%= scadenze.data_scadenza.to_i - @data_oggi.to_i%></td>
+			<% end %>
+			</tr>
+			<tr>
+			<%  if scadenze.tipo=="Gomme" && ((scadenze.dataStipulazione).mjd+(365*3))-@data_oggi.to_i<= 30 %>
+			<td class=pers><%= @autoveicolo.find(scadenze.targa).targa %></td>
+            <td class=pers><%= scadenze.tipo %></td>
+            <td class=pers><%= ((scadenze.dataStipulazione).mjd+(365*3))-@data_oggi.to_i%></td>
+            <% end %>
+            </tr>
+			<tr>
+			<%  if scadenze.tipo=="Bollo" && ((scadenze.dataStipulazione).mjd+(365))-@data_oggi.to_i<= 30 %>
+			<td class=pers><%= @autoveicolo.find(scadenze.targa).targa %></td>
+            <td class=pers><%= scadenze.tipo %></td>
+            <td class=pers><%= ((scadenze.dataStipulazione).mjd+(365))-@data_oggi.to_i%></td>
+            <% end %>
+            </tr>
+			<%  if scadenze.tipo=="Tagliando" && ((scadenze.dataStipulazione).mjd+(365))-@data_oggi.to_i<= 30 %>
+			<td class=pers><%= @autoveicolo.find(scadenze.targa).targa %></td>
+            <td class=pers><%= scadenze.tipo %></td>
+            <td class=pers><%= ((scadenze.dataStipulazione).mjd+(365))-@data_oggi.to_i%></td>
             <% end %>
             </tr>
             <% end %>
             </table>
            <a  href="/scadenzes/new" class="modPers"><span class="glyphicon glyphicon-plus"></span> Aggiungi scadenza </a> 
     </span>
-    <% end %> 
+    <% end %>
 	
 </div>
 </body>
